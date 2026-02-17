@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "../components/Shimmer";
-import styles from "./Home.module.css"; 
+import styles from "./Home.module.css";
 
 const YOUTUBE_API_URL = "https://www.googleapis.com/youtube/v3/search";
 
@@ -14,7 +14,7 @@ function Home() {
     const fetchVideos = async () => {
       try {
         const response = await fetch(
-          `${YOUTUBE_API_URL}?part=snippet&maxResults=12&q=trending&type=video&key=${API_KEY}`
+          `${YOUTUBE_API_URL}?part=snippet&maxResults=20&q=trending&type=video&key=${API_KEY}`
         );
         const data = await response.json();
         setVideos(data.items || []);
@@ -24,7 +24,6 @@ function Home() {
         setLoading(false);
       }
     };
-
     fetchVideos();
   }, [API_KEY]);
 
