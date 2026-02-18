@@ -14,7 +14,7 @@ function Home() {
     const fetchVideos = async () => {
       try {
         const response = await fetch(
-          `${YOUTUBE_API_URL}?part=snippet&maxResults=20&q=trending&type=video&key=${API_KEY}`
+          `${YOUTUBE_API_URL}?part=snippet&maxResults=20&q=sekiro&type=video&key=${API_KEY}`
         );
         const data = await response.json();
         setVideos(data.items || []);
